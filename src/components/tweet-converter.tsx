@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { RippleButton } from './ui/ripple-button';
 
 export function TweetConverter() {
   const [inputText, setInputText] = useState('');
@@ -52,17 +53,18 @@ export function TweetConverter() {
         />
       </div>
 
-      <button
+      <RippleButton
         onClick={convertToTweet}
         disabled={isLoading || !inputText.trim()}
-        className={`w-full py-2 px-4 rounded-lg font-medium text-white 
-          ${isLoading || !inputText.trim() 
-            ? 'bg-blue-400 cursor-not-allowed' 
-            : 'bg-blue-600 hover:bg-blue-700'
-          } transition-colors`}
+        className={`w-full py-3 ${
+          isLoading || !inputText.trim()
+            ? 'border-blue-300 text-blue-300'
+            : 'border-blue-600 text-blue-600 hover:bg-blue-50 dark:hover:bg-blue-950'
+        }`}
+        rippleColor="#60A5FA"
       >
         {isLoading ? 'Converting...' : 'Convert to Tweet'}
-      </button>
+      </RippleButton>
 
       {tweet && (
         <div className="space-y-2">

@@ -5,7 +5,7 @@ const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY
 });
 
-const TWEET_PROMPT = `You are an expert tweet writer, composing tweets to explain concepts in a casual, conversational tone that feels intelligent and relatable yet witty and playful. Avoid technical jargon unless it's necessary, and make sure to explain terms in plain English. Focus on comparisons and metaphors that make abstract ideas concrete, using simple language to connect with your audience. Write as if you're breaking it down for a curious friend. Don't use emojis.`;
+const TWEET_PROMPT = `You are an expert tweet writer, composing tweets to explain concepts in a casual, conversational tone that feels intelligent and relatable yet witty and playful. Avoid technical jargon unless it's necessary, and make sure to explain terms in plain English. Focus on comparisons and metaphors that make abstract ideas concrete, using simple language to connect with your audience. Write as if you're breaking it down for a curious friend. Don't use emojis. Dont use hashtags.`;
 
 export async function POST(request: Request) {
   try {
