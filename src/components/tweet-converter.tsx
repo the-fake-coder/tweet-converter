@@ -35,6 +35,15 @@ export function TweetConverter() {
     }
   };
 
+  // Function to format paragraphs with proper spacing
+  const formatExplanation = (text: string) => {
+    return text.split('\n\n').map((paragraph, index) => (
+      <p key={index} className="mb-4 leading-relaxed">
+        {paragraph}
+      </p>
+    ));
+  };
+
   return (
     <div className="max-w-2xl mx-auto p-6 space-y-6">
       <div className="space-y-2">
@@ -63,7 +72,7 @@ export function TweetConverter() {
         }`}
         rippleColor="#60A5FA"
       >
-          {isLoading ? 'Explaining...' : 'Explain Concept'}
+        {isLoading ? 'Explaining...' : 'Explain Concept'}
       </RippleButton>
 
       {tweet && (
@@ -71,8 +80,8 @@ export function TweetConverter() {
           <label className="block text-sm font-medium text-gray-700 dark:text-gray-200">
             Explanation
           </label>
-          <div className="p-4 bg-white dark:bg-gray-800 rounded-lg border dark:border-gray-700 min-h-[60px]">
-            {tweet}
+          <div className="p-6 bg-white dark:bg-gray-800 rounded-lg border dark:border-gray-700 prose dark:prose-invert max-w-none">
+            {formatExplanation(tweet)}
           </div>
         </div>
       )}

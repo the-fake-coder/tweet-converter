@@ -36,16 +36,17 @@ export async function POST(request: Request) {
         { role: "system", content: TWEET_PROMPT },
         { role: "user", content: `Explain this concept: ${text}` }
       ],
-      max_tokens: 280,
+      max_tokens: 1000,
+      temperature: 0.7,
     });
 
     return NextResponse.json({
       tweet: response.choices[0]?.message?.content || ''
     });
   } catch (error) {
-    console.error('Error converting to tweet:', error);
+    console.error('Error explaining concept:', error);
     return NextResponse.json(
-      { error: 'Failed to convert text to tweet' },
+      { error: 'Failed to explain the concept' },
       { status: 500 }
     );
   }
