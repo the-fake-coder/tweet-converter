@@ -29,7 +29,7 @@ export function TweetConverter() {
 
       setTweet(data.tweet);
     } catch (error) {
-      console.error('Error converting to tweet:', error);
+      console.error('Error explaining concept:', error);
     } finally {
       setIsLoading(false);
     }
@@ -63,13 +63,13 @@ export function TweetConverter() {
         }`}
         rippleColor="#60A5FA"
       >
-        {isLoading ? 'Converting...' : 'Convert to Tweet'}
+          {isLoading ? 'Explaining...' : 'Explain Concept'}
       </RippleButton>
 
       {tweet && (
         <div className="space-y-2">
           <label className="block text-sm font-medium text-gray-700 dark:text-gray-200">
-            Generated Tweet
+            Explanation
           </label>
           <div className="p-4 bg-white dark:bg-gray-800 rounded-lg border dark:border-gray-700 min-h-[60px]">
             {tweet}
